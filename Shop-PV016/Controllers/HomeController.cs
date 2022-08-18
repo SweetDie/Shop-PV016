@@ -2,12 +2,7 @@
 using Microsoft.Extensions.Logging;
 using Shop_PV016.Data;
 using Shop_PV016.Models;
-using Shop_PV016.Services;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Shop_PV016.Controllers
 {
@@ -24,9 +19,7 @@ namespace Shop_PV016.Controllers
 
         public IActionResult Index()
         {
-            ProductService productService = new ProductService(_context);
-            var prudcts = productService.GetProducts();
-            return View(prudcts);
+            return View();
         }
 
         public IActionResult Privacy()
