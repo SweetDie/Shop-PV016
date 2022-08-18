@@ -28,7 +28,14 @@
                         <td class="text-center" width="30%">@item.Description</td>
                         <td class="text-center" width="10%">@item.Price</td>
                         <td class="text-center"><img width="100" src="@item.Image" /></td>
-                        <td class="text-center" width="20%">@item.Category.Name</td>
+                        @if(item.Category == null)
+                        {
+                            <td class="text-center" width="20%">uncategorized</td>
+                        }
+                        else
+                        {
+                                <td class="text-center" width="20%">@item.Category.Name</td>
+                        }
                         <td class="btn-group w-100">
                             <a class="btn btn-warning mx-2" asp-controller="Product" asp-route-Id="@item.Id" asp-action="Edit">Edit</a>
                             <a class="btn btn-danger mx-2" asp-controller="Product" asp-route-Id="@item.Id" asp-action="Delete">Delete</a>
