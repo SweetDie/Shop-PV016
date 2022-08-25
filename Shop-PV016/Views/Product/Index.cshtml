@@ -3,10 +3,10 @@
 <div class="container">
     <div class="row pt-4">
         <div class="col-6">
-            <h2>Categories</h2>
+            <h2>Products</h2>
         </div>
         <div class="col-6 text-right">
-            <a asp-controller="Product" asp-action="Create" class="btn btn-dark">New product</a>
+            <a asp-controller="Product" asp-action="CreateUpdate" class="btn btn-dark">New product</a>
         </div>
         @if (Model.Count() > 0)
         {
@@ -24,20 +24,20 @@
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td class="text-center" width="20%">@item.Name</td>
-                        <td class="text-center" width="30%">@item.Description</td>
+                        <td class="text-center" width="20%">@Html.Raw(@item.Name)</td>
+                        <td class="text-center" width="30%">@Html.Raw(@item.Description)</td>
                         <td class="text-center" width="10%">@item.Price</td>
-                        <td class="text-center"><img width="100" src="@item.Image" /></td>
+                        <td class="text-center"><img width="100" src="@Settings.ImagePath@item.Image" alt="@item.Name" /></td>
                         @if(item.Category == null)
                         {
                             <td class="text-center" width="20%">uncategorized</td>
                         }
                         else
                         {
-                                <td class="text-center" width="20%">@item.Category.Name</td>
+                                <td class="text-center" width="20%">@Html.Raw(@item.Category.Name)</td>
                         }
                         <td class="btn-group w-100">
-                            <a class="btn btn-warning mx-2" asp-controller="Product" asp-route-Id="@item.Id" asp-action="Edit">Edit</a>
+                            <a class="btn btn-warning mx-2" asp-controller="Product" asp-route-Id="@item.Id" asp-action="CreateUpdate">Edit</a>
                             <a class="btn btn-danger mx-2" asp-controller="Product" asp-route-Id="@item.Id" asp-action="Delete">Delete</a>
                         </td>
                     </tr>
@@ -47,7 +47,7 @@
         }
         else
         {
-            <p>Product not found</p>
+            <p>Products not found</p>
         }
     </div>
 </div>

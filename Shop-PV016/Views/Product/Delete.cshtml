@@ -12,7 +12,7 @@
                         <label asp-for="Name"></label>
                     </div>
                     <div class="col-8">
-                        <input disabled class="form-control" asp-for="Name" />
+                        <label disabled class="border p-2">@Html.Raw(@Model.Name)</label>
                     </div>
                 </div>
                 <div class="row form-group">
@@ -20,7 +20,7 @@
                         <label asp-for="Description"></label>
                     </div>
                     <div class="col-8">
-                        <input disabled class="form-control" asp-for="Description" />
+                        <label disabled class="border p-2">@Html.Raw(@Model.Description)</label>
                     </div>
                 </div>
                 <div class="row form-group">
@@ -28,7 +28,7 @@
                         <label asp-for="Price"></label>
                     </div>
                     <div class="col-8">
-                        <input disabled class="form-control" asp-for="Price" />
+                        <label disabled class="border p-2">@Html.Raw(@Model.Price)</label>
                     </div>
                 </div>
                 <div class="row form-group">
@@ -36,15 +36,15 @@
                         <label asp-for="Image"></label>
                     </div>
                     <div class="col-8">
-                        <input disabled class="form-control" asp-for="Image" />
+                        <img width="100" src="@Settings.ImagePath@Model.Image" alt="@Model.Name" />
                     </div>
                 </div>
                 <div class="row form-group">
                     <div class="col-4">
-                        <label asp-for="CategoryId"></label>
+                        <label asp-for="Category"></label>
                     </div>
                     <div class="col-8">
-                        <input disabled class="form-control" asp-for="CategoryId" />
+                        <label disabled class="border p-2">@Html.Raw(@Model.Category.Name)</label>
                     </div>
                 </div>
                 <div class="row form-group">

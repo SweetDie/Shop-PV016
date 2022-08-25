@@ -44,18 +44,26 @@ namespace Shop_PV016.Controllers
         [HttpPost]
         public IActionResult Create(Category category)
         {
-            _db.Categories.Add(category);
-            _db.SaveChanges();
-            return RedirectToAction("Index");
+            if(ModelState.IsValid)
+            {
+                _db.Categories.Add(category);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(category);
         }
 
         [ValidateAntiForgeryToken]
         [HttpPost]
         public IActionResult Edit(Category category)
         {
-            _db.Update(category);
-            _db.SaveChanges();
-            return RedirectToAction("Index");
+            if (ModelState.IsValid)
+            {
+                _db.Update(category);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(category);
         }
 
         [ValidateAntiForgeryToken]
